@@ -5,6 +5,7 @@ import { TaskComponent, TaskProps } from '@/components/TaskComponent'
 import { AddTaskButton } from '@/components/AddTaskButton'
 import { getTasks } from '@/api/TaskService'
 import './globals.css'
+import Nav from '@/components/Navigator'
 
 
 export default function Home(): JSX.Element {
@@ -18,20 +19,21 @@ export default function Home(): JSX.Element {
   }, []);
   return (
     <main>
-      <div>
-        <div className='flex flex-wrap'>
-          <h2> Task list </h2>
-          <AddTaskButton />
+      <div className=''>
+        <div>
+          <div className='flex'>
+            <AddTaskButton />
+          </div>
+          <ul className=''>
+            {tasks.map((task) => (
+              <TaskComponent key={task.id}
+                id={task.id}
+                title={task.title}
+                date={task.date}
+                is_completed={task.is_completed} />
+            ))}
+          </ul>
         </div>
-        <ul className=''>
-          {tasks.map((task) => (
-            <TaskComponent key={task.id}
-              id={task.id}
-              title={task.title}
-              date={task.date}
-              is_completed={task.is_completed}/>
-          ))}
-        </ul>
       </div>
     </main>
   )

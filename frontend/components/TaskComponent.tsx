@@ -1,8 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import { deleteTask, getTask } from '@/api/TaskService'
-import { get } from 'http';
-import { ObjectId } from 'mongodb';
 
 export interface TaskProps {
     id: string;
@@ -31,24 +29,25 @@ export const TaskComponent: React.FC<TaskProps> = ({
     }
 
     return (
-        <div className='flex flex-wrap my-2'>
-            <div className='flex flex-wrap bg-cyan-100 hover:bg-cyan-200 rounded-md p-2 mr-2 w-4/5'
+        <div className='flex my-2'>
+            <div className='flex flex-initial w-8/12 bg-cyan-100 hover:bg-cyan-200 rounded-md p-2 mr-2'
                 onClick={taskClick}>
-                <div className='w-1/12'>
+                <div className='flex-initial w-1/12'>
                     {isCompleted && <span className="material-icons">☑️</span>}
                     {!isCompleted && <span className="material-icons">◻️</span>}
                 </div>
-                <p className='w-1/2'>{title}</p>
+                <p className='flex-initial w-8/12'>{title}</p>
                 <p>{date}</p>
             </div>
             <input
                 type="button"
                 value="Delete"
-                className="bg-red-500
-            hover:bg-red-700
-            text-white font-bold
-            w-1/7
-            py-2 px-4 rounded"
+                className="
+                flex-initial w-1/12
+                bg-red-500
+                hover:bg-red-700
+                text-white font-bold
+                py-2 px-4 rounded"
                 onClick={deleteClick} />
         </div>
     )
