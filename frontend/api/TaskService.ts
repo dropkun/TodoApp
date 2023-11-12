@@ -1,8 +1,10 @@
 import { TaskProps } from "@/components/TaskComponent";
 import { ReactNode, ReactPropTypes } from "react";
 
+const API_URL = "https://todo-backend-pcnvflctcq-an.a.run.app";
+
 export const getTasks = async () => {
-    const res = await fetch("http://localhost:3001/tasks", {
+    const res = await fetch(API_URL + "/tasks", {
         method: "GET",
     });
 
@@ -14,10 +16,10 @@ export const getTasks = async () => {
 };
 
 export const getTask = async (id : string) => {
-    const res = await fetch("http://localhost:3001/task/" + id, {
+    const res = await fetch(API_URL + "/task/" + id, {
         method: "GET",
     });
-    
+
     console.log("Fetched to get task");
 
     const task = await res.json();
@@ -26,7 +28,7 @@ export const getTask = async (id : string) => {
 };
 
 export const addTask = async (taskname : string) => {
-    const res = await fetch("http://localhost:3001/task", {
+    const res = await fetch(API_URL + "/task", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -49,7 +51,7 @@ export const addTask = async (taskname : string) => {
 export const deleteTask = async (id : string) => {
     console.log(id);
     try {
-        const res = await fetch("http://localhost:3001/task/" + id, {
+        const res = await fetch(API_URL + "/task/" + id, {
             method: "DELETE",
 
         });
