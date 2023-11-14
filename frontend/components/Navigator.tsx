@@ -4,14 +4,12 @@ export default function Nav() {
   return (
     <nav>
       <ul
-        className={`
-            text-black
-            mx-4 my-4`}
+        className={`text-black`}
       >
-        <li className={`m-4`}>
+        <li className='my-6'>
           <Link href='/'>Tasks</Link>
         </li>
-        <li className={`m-4`}>
+        <li className='my-6'>
           <Link href='/tech'>Schedule</Link>
         </li>
       </ul>

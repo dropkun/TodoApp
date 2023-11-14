@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Headers from '@/components/Header'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,18 +18,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ja'>
-      <body>
-        <div className="flex">
-          <div className="flex-auto w-48 h-screen">
-            <Headers />
+      <UserProvider>
+        <body>
+          <div className="flex">
+            <div className="flex-auto w-48 h-screen">
+              <Headers />
+            </div>
+            <div className="flex-auto w-4/5">
+              <main className='mx-32'>
+                {children}
+              </main>
+            </div>
           </div>
-          <div className="flex-auto w-4/5">
-            <main className='mx-32'>
-              {children}
-            </main>
-          </div>
-        </div>
-      </body>
+        </body>
+      </UserProvider>
     </html>
   )
 }
