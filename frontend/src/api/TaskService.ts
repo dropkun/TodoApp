@@ -1,6 +1,7 @@
-const API_URL = "http://localhost:3001";
+const API_URL = import.meta.env.VITE_BACKAPI_URL;
 
 export const getTasks = async () => {
+    console.log(API_URL);
     try {
         const response = await fetch(API_URL + "/tasks", {
             method: "GET",

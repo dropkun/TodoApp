@@ -1,25 +1,25 @@
-import express from 'express'
+import * as express from 'express'
 import { Prisma, PrismaClient } from '@prisma/client'
-import { ObjectId } from 'bson'
-import cors from 'cors'
+import * as cors from 'cors'
+import * as dotenv from 'dotenv'
+
+dotenv.config();
+
+const prisma = new PrismaClient();
 
 const app = express()
-const port = 3001
-const prisma = new PrismaClient();
 var corsOptions = {
-  origin: 'http://localhost:5173',
+    origin: process.env.FRONTAPI_URL,
 };
-
 app.use(cors(corsOptions));
-
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Todoapp-backend API!!');
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening on port ${process.env.PORT}`)
 })
 
 app.post(`/task`, async (req, res) => {
