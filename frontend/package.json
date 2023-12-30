@@ -12,11 +12,13 @@
   "dependencies": {
     "@types/antd": "^1.0.0",
     "antd": "^5.12.5",
+    "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^4.9.1"
   },
   "devDependencies": {
+    "@types/node": "^20.10.6",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
