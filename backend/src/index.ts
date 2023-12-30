@@ -8,6 +8,7 @@ dotenv.config();
 const prisma = new PrismaClient();
 
 const app = express()
+const port = 8080;
 var corsOptions = {
     origin: process.env.FRONTAPI_URL,
 };
@@ -18,8 +19,8 @@ app.get('/', (req, res) => {
   res.send('Todoapp-backend API!!');
 })
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening on port ${process.env.PORT}`)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
 
 app.post(`/task`, async (req, res) => {
