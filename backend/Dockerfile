@@ -14,5 +14,9 @@ RUN npm install
 # TypeScriptをビルド
 RUN tsc
 
+RUN npx prisma generate
+
+EXPOSE 8080
+
 # アプリケーションを実行
 CMD ["node", "dist/index.js"]
