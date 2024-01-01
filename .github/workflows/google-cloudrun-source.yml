@@ -52,8 +52,8 @@ on:
 
 env:
   PROJECT_ID: dropkun # TODO: update Google Cloud project id
-  SERVICE: todoapp-backend # TODO: update Cloud Run service name
-  REGION: asia-northeast2 # TODO: update Cloud Run service region
+  SERVICE: backend # TODO: update Cloud Run service name
+  REGION: asia-northeast1 # TODO: update Cloud Run service region
 
 jobs:
   deploy:
