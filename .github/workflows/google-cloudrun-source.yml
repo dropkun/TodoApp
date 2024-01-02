@@ -48,7 +48,7 @@ name: Deploy to Cloud Run from Source
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "deploy-latest" ]
 
 env:
   PROJECT_ID: dropkun # TODO: update Google Cloud project id
