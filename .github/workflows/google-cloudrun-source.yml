@@ -92,6 +92,7 @@ jobs:
           env_vars: |
             FRONTAPI_URL='${{ secrets.FRONTAPI_URL }}'
             DATABASE_URL='${{ secrets.DATABSE_URL }}'
+          flags: '--allow-unauthenticated'
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
