@@ -91,7 +91,7 @@ jobs:
           source: ./backend/
           env_vars: |
             FRONTAPI_URL=${{ secrets.FRONTAPI_URL }}
-            DATABASE_URL=${{ secrets.DATABSE_URL }}
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
           flags: '--add-cloudsql-instances=...'
 
       # If required, use the Cloud Run url output in later steps
