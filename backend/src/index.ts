@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 const app = express();
 const port = 8080;
 const corsOptions = {
-  origin: process.env.FRONTAPI_URL,
+  origin: '*',
 };
 app.use(cors(corsOptions));
 app.use(express.json());
