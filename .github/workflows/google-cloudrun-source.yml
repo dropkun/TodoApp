@@ -48,7 +48,7 @@ name: Deploy to Cloud Run from Source
 
 on:
   push:
-    branches: [ "deploy-latest" ]
+    branches: ['deploy-latest']
 
 env:
   PROJECT_ID: dropkun # TODO: update Google Cloud project id
@@ -67,14 +67,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-     #- name: Google Auth
-     #  id: auth
-     #  uses: 'google-github-actions/auth@v1'
-     #  with:
-     #    workload_identity_provider: '${{ secrets.WIF_PROVIDER }}' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
-     #    service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
+      #- name: Google Auth
+      #  id: auth
+      #  uses: 'google-github-actions/auth@v1'
+      #  with:
+      #    workload_identity_provider: '${{ secrets.WIF_PROVIDER }}' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+      #    service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
 
-     #NOTE: Alternative option - authentication via credentials json
+      #NOTE: Alternative option - authentication via credentials json
       - name: Google Auth
         id: auth
         uses: 'google-github-actions/auth@v1'
