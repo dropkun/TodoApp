@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.BACKAPI_URL;
+const API_URL = import.meta.env.VITE_BACKAPI_URL;
 
 export const getTasks = async () => {
   console.log(API_URL);
