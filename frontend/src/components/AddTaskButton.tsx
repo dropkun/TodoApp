@@ -1,11 +1,11 @@
-import { addTask } from '../api/TaskService';
+import { taskAPI } from '../api/Task';
 import { useState } from 'react';
 
 export const AddTaskButton: React.FC = () => {
   const [taskName, setTaskName] = useState<string>('');
 
   const handleAdding = () => {
-    addTask(taskName);
+    taskAPI.createTask(taskName);
   };
 
   return (
