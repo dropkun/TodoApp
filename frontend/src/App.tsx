@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Layout, Menu, Button, theme } from 'antd';
-import { TaskComponent, TaskProps } from './components/TaskComponent';
+import { TaskComponent } from './components/TaskComponent';
 import { AddTaskButton } from './components/AddTaskButton';
-import { getTasks } from './api/TaskService';
+import { Task, taskAPI } from './api/Task';
 
 const { Header, Sider, Content } = Layout;
 
@@ -20,9 +20,9 @@ function App() {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
-    getTasks().then((tasks) => {
+    taskAPI.getAllTasks().then((tasks) => {
       setTasks(tasks);
     });
   }, []);
@@ -84,7 +84,7 @@ function App() {
                 id={task.id}
                 title={task.title}
                 date={task.date}
-                is_completed={task.is_completed}
+                isCompleted={task.isCompleted}
               />
             ))}
           </>

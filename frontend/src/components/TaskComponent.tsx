@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { deleteTask, getTask } from '../api/TaskService';
+import { Task, taskAPI } from '../api/Task';
 import { Button, Col, Row } from 'antd';
 import { blue } from '@ant-design/colors';
 import {
@@ -17,42 +17,34 @@ const boxStyle: React.CSSProperties = {
   margin: '2px',
 };
 
-export interface TaskProps {
-  id: string;
-  title?: string;
-  date?: string;
-  is_completed?: boolean;
-}
-
-export const TaskComponent: React.FC<TaskProps> = ({
+export const TaskComponent: React.FC<Task> = ({
   id,
   title,
   date,
-  is_completed,
+  isCompleted,
 }) => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(
-    is_completed ?? false
+  const [isCompletedOnState, setIsCompleted] = useState<boolean>(
+    isCompleted ?? false
   );
 
   const taskClick = () => {
-    setIsCompleted(!isCompleted);
+    setIsCompleted(!isCompletedOnState);
   };
 
   const deleteClick = () => {
     console.log(id);
-    getTask(id);
-    deleteTask(id);
+    taskAPI.deleteTask(id);
   };
 
   return (
     <Row style={boxStyle} onClick={taskClick} align={'middle'}>
       <Col span={1}>
-        {isCompleted && (
+        {isCompletedOnState && (
           <CheckCircleOutlined
             style={{ fontSize: '20px', color: blue.primary }}
           />
         )}
-        {!isCompleted && <MinusCircleOutlined style={{ fontSize: '20px' }} />}
+        {!isCompletedOnState && <MinusCircleOutlined style={{ fontSize: '20px' }} />}
       </Col>
       <Col span={5}>{title}</Col>
       <Col span={8}>{date}</Col>
